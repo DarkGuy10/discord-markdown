@@ -4,6 +4,7 @@ interface DiscordCallback {
 	user?: (node: { id: string }) => string;
 	channel?: (node: { id: string }) => string;
 	role?: (node: { id: string }) => string;
+	emoji?: (node: { id: string, name: string, animated: boolean }) => string;
 	everyone?: () => string;
 	here?: () => string;
 }

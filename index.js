@@ -158,6 +158,7 @@ const discordCallbackDefaults = {
 	user: node => '@' + markdown.sanitizeText(node.id),
 	channel: node => '#' + markdown.sanitizeText(node.id),
 	role: node => '&' + markdown.sanitizeText(node.id),
+	emoji: node => ':' + markdown.sanitizeText(node.name) + ':' + markdown.sanitizeText(node.id),
 	everyone: () => '@everyone',
 	here: () => '@here'
 };
@@ -210,11 +211,7 @@ const rulesDiscord = {
 			};
 		},
 		html: function(node, output, state) {
-			return htmlTag('img', '', {
-				class: `d-emoji${node.animated ? ' d-emoji-animated' : ''}`,
-				src: `https://cdn.discordapp.com/emojis/${node.id}.${node.animated ? 'gif' : 'png'}`,
-				alt: `:${node.name}:`
-			}, false, state);
+			return htmlTag('span', state.discordCallback.emoji(node), { class: 'd-emoji' }, state);
 		}
 	},
 	discordEveryone: {
