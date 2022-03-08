@@ -1,5 +1,8 @@
 # discord-markdown
+
 A markdown parser for Discord messages.
+
+##### Forked from [brussell98/discord-markdown](https://github.com/brussell98/discord-markdown)
 
 ## Using
 
@@ -11,9 +14,9 @@ npm i discord-markdown
 For browser use, import `dist/discord-markdown.min.js`
 
 ```js
-const { parser, htmlOutput, toHTML } = require('discord-markdown');
+const { parser, htmlOutput, toHTML } = require("discord-markdown");
 
-console.log(toHTML('This **is** a __test__'));
+console.log(toHTML("This **is** a __test__"));
 // => This <strong>is</strong> a <u>test</u>
 ```
 
@@ -22,22 +25,22 @@ Fenced codeblocks will include highlight.js tags and classes.
 ## Options
 
 ```js
-const { toHTML } = require('discord-markdown');
-toHTML('This **is** a __test__', options);
+const { toHTML } = require("discord-markdown");
+toHTML("This **is** a __test__", options);
 ```
 
 `options` is an object with the following properties (all are optional):
 
-* `embed`: Boolean (default: false), if it should parse embed contents (rules are slightly different)
-* `escapeHTML`: Boolean (default: true), if it should escape HTML
-* `discordOnly`: Boolean (default: false), if it should only parse the discord-specific stuff
-* `discordCallback`: Object, callbacks used for discord parsing. Each receive an object with different properties, and are expected to return an HTML escaped string
-  * `user`: (`id`: Number) User mentions "@someperson"
-  * `channel`: (`id`: Number) Channel mentions "#somechannel"
-  * `role`: (`id`: Number) Role mentions "@somerole"
-  * `everyone`: () Everyone mention "@everyone"
-  * `here`: () Here mention "@here"
-* `cssModuleNames`: Object, maps CSS class names to CSS module class names
+-   `embed`: Boolean (default: false), if it should parse embed contents (rules are slightly different)
+-   `escapeHTML`: Boolean (default: true), if it should escape HTML
+-   `discordOnly`: Boolean (default: false), if it should only parse the discord-specific stuff
+-   `discordCallback`: Object, callbacks used for discord parsing. Each receive an object with different properties, and are expected to return an HTML escaped string
+    -   `user`: (`id`: Number) User mentions "@someperson"
+    -   `channel`: (`id`: Number) Channel mentions "#somechannel"
+    -   `role`: (`id`: Number) Role mentions "@somerole"
+    -   `everyone`: () Everyone mention "@everyone"
+    -   `here`: () Here mention "@here"
+-   `cssModuleNames`: Object, maps CSS class names to CSS module class names
 
 ### Mention and Emoji Handling
 
